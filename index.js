@@ -107,4 +107,40 @@ const popupContainer = document.getElementById("popup-container");
 const relatedMoviesContainer = document.getElementById("related-movies");
 const searchMoviePopup = document.getElementById("search-movie-popup");
 
+// view movie on double click
+const viewMovie = async (id) => {
+    moviePopup.style.display = "block";
+    popupOverlay.style.display = "block";
+    const movie = await movieInfo(id);
+  
+    popupContainer.innerHTML = popupContent(
+      movie.title,
+      movie.overview,
+      movie.popularity,
+      movie.backdrop_path,
+      movie.vote_count,
+      movie.vote_average
+    );
+  
+    const movies = await relatedMovies(id);
+  
+    relatedMoviesContainer.innerHTML = movies
+      .map(({ title, backdrop_path, id }) => {
+        return moviePoster(title, backdrop_path, id);
+      })
+      .join("");
+  
+    searchMoviePopup.style = "hidden";
+  };
+  
+  // close popups
+  const closeMoviePopup = () => {
+    moviePopup.style.display = "none";
+    popupOverlay.style.display = "none";
+  };
+  
+  const closeSearchMoviePopup = () => {
+    searchMoviePopup.style.display = "none";
+    popupOverlay.style.display = "none";
+  };
   
