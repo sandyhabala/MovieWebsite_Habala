@@ -59,3 +59,16 @@ const moviePoster = (title, backdrop_path, id) => {
           </div>
             `;
   };
+
+  // display movies function
+const renderMovies = async () => {
+    const movies = await getMovies();
+    moviesDiv.innerHTML = movies
+      .map(({ title, backdrop_path, id }) => {
+        return moviePoster(title, backdrop_path, id);
+      })
+      .join("");
+  };
+  
+  renderMovies();
+  
