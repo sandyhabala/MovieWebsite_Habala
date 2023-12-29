@@ -72,3 +72,31 @@ const renderMovies = async () => {
   
   renderMovies();
   
+  // movie info content display
+const popupContent = (
+    title,
+    overview,
+    popularity,
+    backdrop_path,
+    vote_count,
+    vote_average
+  ) => {
+    return `
+      <div class="popup-content">
+        <div>
+          <h1>${title}</h1>
+          <h4>Overview:</h4>
+          <p>${overview}</p> 
+          <h4>Popularity</h4>
+          <h5>${popularity}</h5>
+          <h4>Votes:</h4>
+          <p>${vote_count}</p>
+          <h4>Vote average:</h4>
+          <p>${vote_average}</p>
+        </div>
+        <img src="http://image.tmdb.org/t/p/w500${backdrop_path}">
+      </div>
+      
+    `;
+  };
+  
