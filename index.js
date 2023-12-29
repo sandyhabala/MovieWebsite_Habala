@@ -1,3 +1,11 @@
+// declare movie container
+
+const moviesDiv = document.getElementById("movies");
+
+const apiKey = "1bfdbff05c2698dc917dd28c08d41096";
+
+let page = 1;
+
 // get upcoming movies function
 const getMovies = async () => {
     const response = await fetch(
