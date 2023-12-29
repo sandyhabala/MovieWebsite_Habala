@@ -144,3 +144,31 @@ const viewMovie = async (id) => {
     popupOverlay.style.display = "none";
   };
   
+  // declare elements for searching
+const search = document.getElementById("search");
+const searchInput = document.getElementById("search-input");
+const searchResults = document.getElementById("search-results");
+
+const searchQuery = document.getElementById("search-query");
+
+let searchInputValue = "";
+
+searchInput.addEventListener("input", () => {
+  searchInputValue = searchInput.value;
+});
+
+// search submission
+search.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const movies = await searchMovies(searchInputValue);
+  searchMoviePopup.style.display = "block";
+  popupOverlay.style.display = "block";
+
+  searchQuery.innerHTML = searchInputValue;
+  searchResults.innerHTML = movies
+    .map(({ title, backdrop_path, id }) => {
+      return moviePoster(title, backdrop_path, id);
+    })
+    .join("");
+});
