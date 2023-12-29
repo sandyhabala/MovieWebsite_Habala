@@ -47,3 +47,15 @@ const getMovies = async () => {
   
     return movies.results;
   };
+
+  // element for movie poster
+const moviePoster = (title, backdrop_path, id) => {
+    return `
+          <div class="movie-poster" ondblclick="viewMovie(${id})">
+              <div class="movie-poster-content">
+                <img src="http://image.tmdb.org/t/p/w500${backdrop_path}" alt=${backdrop_path}>
+                <h3>${title}</h3>
+              </div>
+          </div>
+            `;
+  };
