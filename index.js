@@ -99,4 +99,12 @@ const popupContent = (
       
     `;
   };
+
+  // declare elements
+const moviePopup = document.getElementById("movie-popup");
+const popupOverlay = document.getElementById("popup-overlay");
+const popupContainer = document.getElementById("popup-container");
+const relatedMoviesContainer = document.getElementById("related-movies");
+const searchMoviePopup = document.getElementById("search-movie-popup");
+
   
